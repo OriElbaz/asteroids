@@ -44,6 +44,12 @@ def main():
                 log_event("player_hit")
                 print("Game Over!")
                 sys.exit()
+            
+            for bullet in shots:
+                if obj.collides_with(bullet):
+                    log_event("asteroid_shot")
+                    obj.kill()
+                    bullet.kill()
                 
 
 
