@@ -1,6 +1,3 @@
-Here is a clean, structured `README.md` file for your project. I have tailored the "How to Run" section to focus on `uv` as you requested.
-
-```markdown
 # Asteroids
 
 A Python implementation of the classic arcade game "Asteroids," built using [Pygame](https://www.pygame.org/).
@@ -44,3 +41,4 @@ uv run ./main.py
 * **Reverse:** S Key
 * **Shoot:** Spacebar
 * **Quit:** Close window
+
