@@ -6,6 +6,7 @@ from asteroid import Asteroid
 from asteroidfield import AsteroidField
 from shot import Shot
 import sys
+from points import Points
 
 
 def main():
@@ -21,7 +22,7 @@ def main():
     Asteroid.containers = (updatable, drawable, asteroids)
     AsteroidField.containers = (updatable)
     Shot.containers = (shots, drawable, updatable)
-
+    Points.containers = (updatable)
 
     clock = pygame.time.Clock()
     dt = 0
@@ -31,12 +32,14 @@ def main():
 
     player = Player(x, y)
     AsteroidField()
+    points = Points()
+    
 
 
     while True:
         log_state()
         screen.fill('black')
-
+        points.render_points(screen)
         updatable.update(dt)
 
         for obj in asteroids:
@@ -48,10 +51,8 @@ def main():
             for bullet in shots:
                 if obj.collides_with(bullet):
                     log_event("asteroid_shot")
-                    obj.split()
+                    points.add_point() if obj.split() else ...
                     bullet.kill()
-                
-
 
         for inst in drawable:
             inst.draw(screen)
